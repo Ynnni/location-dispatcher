@@ -1,0 +1,6 @@
+/.bundle
+/.idea
+/bin
+/vendor/bundle
+
+.ruby-version
