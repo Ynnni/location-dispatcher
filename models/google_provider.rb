@@ -1,0 +1,3 @@
+class GoogleProvider < Provider
+
+end

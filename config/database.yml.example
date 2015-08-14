@@ -5,5 +5,4 @@ development:
   database: locations_dispatcher
   pool: 5
   username: root
-  password: toor
   host: localhost

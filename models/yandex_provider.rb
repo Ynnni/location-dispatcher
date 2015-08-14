@@ -1,0 +1,3 @@
+class YandexProvider < Provider
+
+end

@@ -2,5 +2,5 @@
 /.idea
 /bin
 /vendor/bundle
-
+/config/database.yml
 .ruby-version
