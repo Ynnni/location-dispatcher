@@ -1,6 +1,7 @@
 /.bundle
 /.idea
-/bin
+/bin/*
+!/bin/console
 /vendor/bundle
 /config/database.yml
 .ruby-version
