@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20150814215901) do
   create_table "points", force: :cascade do |t|
     t.string   "latitude",   limit: 255
     t.string   "longitude",  limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "providers", force: :cascade do |t|
-    t.string   "type",            limit: 255
     t.string   "name",            limit: 255
+    t.string   "symbol",          limit: 255
     t.integer  "sequence_number", limit: 4
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
