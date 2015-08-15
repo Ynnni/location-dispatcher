@@ -7,11 +7,21 @@ class LocationDispatcher < Sinatra::Base
   set :show_exceptions, :after_handler
 
   error RequiredParamMissing do
-    halt 400, env['sinatra.error'].message
+    content_type :json
+    status 400
+    { errors: env['sinatra.error'].message }.to_json
   end
 
   error ActiveRecord::RecordInvalid do
-    halt 400, { errors: env['sinatra.error'].record.errors }.to_json
+    content_type :json
+    status 400
+    { errors: env['sinatra.error'].record.errors }.to_json
+  end
+
+  error ActiveRecord::RecordNotFound do
+    content_type :json
+    status 404
+    { errors: env['sinatra.error'].message }.to_json
   end
 
   post '/feed', needs: [:lat, :lon] do
