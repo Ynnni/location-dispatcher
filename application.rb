@@ -15,12 +15,16 @@ class LocationDispatcher < Sinatra::Base
   end
 
   post '/feed', needs: [:lat, :lon] do
-    @point = Point.create! longitude: params[:lon], latitude: params[:lat]
+    @location = Location.new
+    @point = @location.build_point longitude: params[:lon], latitude: params[:lat]
+    binding.pry
+    @location.save!
     status 201
     jbuilder :point
   end
 
   get '/locations/:id' do
+    @point = Point.find params[:id]
     jbuilder :location
   end
 end
