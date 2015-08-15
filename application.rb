@@ -23,7 +23,7 @@ class LocationDispatcher < Sinatra::Base
   end
 
   get '/locations/:id' do
-    @point = Point.find params[:id]
+    @location = Location.find params[:id]
     jbuilder :location
   end
 end
