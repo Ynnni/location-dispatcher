@@ -17,7 +17,6 @@ class LocationDispatcher < Sinatra::Base
   post '/feed', needs: [:lat, :lon] do
     @location = Location.new
     @point = @location.build_point longitude: params[:lon], latitude: params[:lat]
-    binding.pry
     @location.save!
     status 201
     jbuilder :point
