@@ -1,0 +1,1 @@
+json.(@point, :longitude, :latitude)

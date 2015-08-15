@@ -10,8 +10,14 @@ class LocationDispatcher < Sinatra::Base
     halt 400, env['sinatra.error'].message
   end
 
+  error ActiveRecord::RecordInvalid do
+    halt 400, { errors: env['sinatra.error'].record.errors }.to_json
+  end
+
   post '/feed', needs: [:lat, :lon] do
-    jbuilder :location
+    @point = Point.create! longitude: params[:lon], latitude: params[:lat]
+    status 201
+    jbuilder :point
   end
 
   get '/locations/:id' do
