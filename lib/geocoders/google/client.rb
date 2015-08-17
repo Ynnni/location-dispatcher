@@ -5,7 +5,8 @@ module Geocoders
       base_uri 'https://maps.googleapis.com'
 
       def reverse_geocode(point)
-        self.class.get '/maps/api/geocode/json', query: { format: :json, latlng: point.to_param(:reverse)}
+        response = self.class.get '/maps/api/geocode/json', query: { format: :json, latlng: point.to_param(:reverse)}
+        Response.new response
       end
     end
   end

@@ -2,7 +2,7 @@ require 'geocoders/yandex/client'
 require 'geocoders/yandex/response'
 require 'geocoders/yandex/object'
 
-module Geocoder
+module Geocoders
   module Yandex
 
   end

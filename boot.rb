@@ -15,4 +15,5 @@ require 'address'
 require 'provider'
 require 'location'
 
+require 'hash'
 require 'geocoders'

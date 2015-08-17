@@ -1,17 +1,15 @@
 module Geocoders
   module Yandex
     class Object
+      include Geocoders::Conversion
+
       def initialize(data)
         @data = data
         @administrative_area = @data.fetch 'AdministrativeArea', {}
         @sub_administrative_area = @administrative_area.fetch 'SubAdministrativeArea', {}
-        @locality = @sub_administrative_area.fetch 'Locality', {}
-        @dependent_locality = @locality.fetch 'DependentLocality', {}
+        @dependent_locality = @sub_administrative_area.fetch('Locality', {}).fetch 'DependentLocality', {}
 
-        @country = country
-        @city = city
-        @region = region
-        @street = street
+        @country, @city, @region, @street = country, city, region, street
       end
 
       def country
@@ -28,10 +26,6 @@ module Geocoders
 
       def street
         @dependent_locality['DependentLocalityName']
-      end
-
-      def to_address
-        Address.new street: @street, city: @city, region: @region, country: @country
       end
     end
   end

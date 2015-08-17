@@ -1,8 +1,7 @@
-require 'geocoders/utils'
-
+require 'geocoders/conversion'
 require 'geocoders/yandex'
-# require 'geocoders/google'
+require 'geocoders/google'
 
-module Geocoder
+module Geocoders
 
 end

@@ -2,7 +2,6 @@ module Geocoders
   module Yandex
     class Client
       include HTTParty
-
       base_uri 'https://geocode-maps.yandex.ru'
 
       def reverse_geocode(point)
