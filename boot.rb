@@ -15,4 +15,4 @@ require 'address'
 require 'provider'
 require 'location'
 
-require 'geocoder'
+require 'geocoders'
