@@ -29,7 +29,7 @@ class LocationDispatcher < Sinatra::Base
     @point = @location.build_point longitude: params[:lon], latitude: params[:lat]
     @location.save!
     status 201
-    jbuilder :point
+    jbuilder :location
   end
 
   get '/locations/:id' do
