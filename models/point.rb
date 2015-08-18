@@ -9,4 +9,14 @@ class Point < ActiveRecord::Base
     params.reverse! if reverse
     params.join ','
   end
+
+  def provider
+    @provider ||= Provider.find_by_sequence_number location.addresses.count
+  end
+
+  def attach(address)
+    address.location = location
+    address.provider = provider
+    address.save
+  end
 end
